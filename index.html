@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Photographer – Pronto</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- DM Sans (used for all text per Figma nodes) -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── page shell ── */
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f0f0f0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ══════════════════════════════════
+       NODE 200:6253  –  SKU Block
+       width: 360px (Figma canvas)
+    ══════════════════════════════════ */
+    .sku-block {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 390px;
+      background: #fff;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* ══════════════════════════════════
+       NODE 204:6432  –  image 81
+       aspect-ratio 381/188, full width
+       inner img: h 304.26%, left -0.04%,
+                  top -17.55%, w 100.09%
+    ══════════════════════════════════ */
+    .hero {
+      /* exact Figma aspect ratio */
+      aspect-ratio: 381 / 188;
+      width: 100%;
+      position: relative;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .hero__img {
+      /* Figma absolute positioning inside overflow:hidden wrapper */
+      position: absolute;
+      width: 100.09%;
+      height: 304.26%;
+      left: -0.04%;
+      top: -17.55%;
+      object-fit: cover;
+      object-position: top center;
+      pointer-events: none;
+    }
+
+    /* nav buttons sit on top of hero */
+    .hero__nav {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      display: flex;
+      justify-content: space-between;
+      z-index: 2;
+    }
+    .nav-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.28);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .nav-btn svg {
+      width: 16px; height: 16px;
+      fill: none;
+      stroke: #fff;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ══════════════════════════════════
+       NODE 200:6260  –  Body (info bar)
+       bg white, border-b dashed #ccc,
+       padding 20px
+    ══════════════════════════════════ */
+    .info-bar {
+      background: #ffffff;
+      border-bottom: 1px dashed #cccccc;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex-shrink: 0;
+      width: 100%;
+    }
+
+    /* NODE 200:6295  –  inner row */
+    .info-row {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    /* NODE 200:6287  –  left text group */
+    .info-left {
+      display: flex;
+      flex: 1 0 0;
+      flex-direction: column;
+      gap: 2px;
+      align-items: flex-start;
+      color: #0f0f0f;
+      min-width: 0;
+    }
+
+    /* NODE 200:6288  –  "Photographer" label
+       DM Sans Regular 14px / lh 20px        */
+    .service-label {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: #0f0f0f;
+      font-variation-settings: 'opsz' 14;
+      white-space: nowrap;
+    }
+
+    /* NODE 200:6290  –  "₹499 / hour"
+       Alte Haas Grotesk Bold 18px / lh 26px
+       (Alte Haas Grotesk not on GFonts –
+        using DM Sans 800 as closest match) */
+    .service-price {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      line-height: 26px;
+      color: #0f0f0f;
+      white-space: nowrap;
+      letter-spacing: -0.2px;
+    }
+
+    /* NODE 200:6292  –  Book button
+       bg white, border 1px solid #e3e3e3,
+       rounded 8px, w 88px, h 48px, px 16px */
+    .book-btn {
+      background: #ffffff;
+      border: 1px solid #e3e3e3;
+      border-radius: 8px;
+      width: 88px;
+      height: 48px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      cursor: pointer;
+      /* NODE 200:6293  –  "Book" text
+         DM Sans Medium 14px / lh 20px      */
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      color: #000000;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-variation-settings: 'opsz' 14;
+      transition: background 0.12s;
+    }
+    .book-btn:hover  { background: #f5f5f5; }
+    .book-btn:active { background: #ededed; }
+
+    /* ══════════════════════════════════
+       NODE 200:6296  –  Body (how section)
+       bg white, px 20px, py 24px
+    ══════════════════════════════════ */
+    .how-section {
+      background: #ffffff;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex-shrink: 0;
+      width: 100%;
+    }
+
+    /* NODE 200:6299  –  "How it's done?"
+       DM Sans Regular 14px / lh 20px / #0f0f0f */
+    .how-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: #0f0f0f;
+      font-variation-settings: 'opsz' 14;
+      width: 100%;
+      margin-bottom: 0;
+    }
+
+    /* NODE 202:6367  –  steps container */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    /* ── each step row (202:6360, 202:6368, 202:6381, 202:6387)
+       flex gap-16px, items-start, py-16px ── */
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 16px 0;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    /* ── step icon wrapper
+       NODE 204:6426 / 202:6370 / 204:6428  –  rounded-8px, 56×56
+       inner bg: #f1faff
+       NODE 202:6388 (last)  –  border 0.875px #eee, rounded-7px, no bg ── */
+    .step-icon {
+      position: relative;
+      border-radius: 8px;
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      overflow: hidden;
+    }
+    /* bg layer (all except last step) */
+    .step-icon__bg {
+      position: absolute;
+      inset: 0;
+      border-radius: 8px;
+      background: #f1faff;
+    }
+    /* overflow container */
+    .step-icon__clip {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    /* NODE 204:6426, 202:6370  –  img crop: h 144%, left -0.58%, top -15.56%, w 100% */
+    .step-icon__img {
+      position: absolute;
+      width: 100%;
+      height: 144%;
+      left: -0.58%;
+      top: -15.56%;
+      max-width: none;
+      pointer-events: none;
+    }
+
+    /* NODE 204:6428 (step 3)  –  h 151.27%, left -4.53%, top -25.58%, w 105.05% */
+    .step-icon__img--s3 {
+      width: 105.05%;
+      height: 151.27%;
+      left: -4.53%;
+      top: -25.58%;
+    }
+
+    /* NODE 202:6388 (last step) – border 0.875px #eee, rounded-7px, no bg */
+    .step-icon--bordered {
+      border: 0.875px solid #eeeeee;
+      border-radius: 7px;
+    }
+    .step-icon--bordered .step-icon__bg { display: none; }
+
+    /* step text group */
+    .step-text {
+      display: flex;
+      flex: 1 0 0;
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: 0;
+      color: #000000;
+    }
+
+    /* NODE 202:6356/6372/6385/6391
+       DM Sans SemiBold 14px / lh 20px / nowrap */
+    .step-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+      color: #000000;
+      white-space: nowrap;
+      flex-shrink: 0;
+      font-variation-settings: 'opsz' 14;
+    }
+
+    /* NODE 202:6358/6373/6386/6392
+       DM Sans Regular 12px / lh 18px / opacity 0.7 */
+    .step-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      color: #000000;
+      opacity: 0.70;
+      width: 100%;
+      font-variation-settings: 'opsz' 14;
+    }
+
+    /* ── responsive: show phone card on wide screens ── */
+    @media (min-width: 430px) {
+      body { padding: 32px 0 64px; align-items: flex-start; }
+      .sku-block {
+        border-radius: 36px;
+        min-height: unset;
+        overflow: hidden;
+        box-shadow: 0 24px 72px rgba(0,0,0,0.16);
+      }
+    }
+
+    /* very small screens */
+    @media (max-width: 360px) {
+      .step-title { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+     NODE 200:6253  –  SKU Block
+════════════════════════════════════ -->
+<div class="sku-block" data-node-id="200:6253">
+
+  <!-- ═══════════════════════════════
+       NODE 204:6432  –  image 81
+  ════════════════════════════════ -->
+  <div class="hero" data-node-id="204:6432">
+    <!-- exact Figma image from node-level fetch -->
+    <img
+      class="hero__img"
+      src="https://www.figma.com/api/mcp/asset/56f731f6-8139-4b24-8008-79384b716e54"
+      alt=""
+    />
+
+    <!-- nav buttons -->
+    <div class="hero__nav">
+      <button class="nav-btn" aria-label="Back">
+        <svg viewBox="0 0 24 24">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <button class="nav-btn" aria-label="Share">
+        <svg viewBox="0 0 24 24">
+          <circle cx="18" cy="5"  r="3"/>
+          <circle cx="6"  cy="12" r="3"/>
+          <circle cx="18" cy="19" r="3"/>
+          <line x1="8.59"  y1="13.51" x2="15.42" y2="17.49"/>
+          <line x1="15.41" y1="6.51"  x2="8.59"  y2="10.49"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════
+       NODE 200:6260  –  Body (info bar)
+  ════════════════════════════════ -->
+  <div class="info-bar" data-node-id="200:6260">
+    <!-- NODE 200:6295 -->
+    <div class="info-row" data-node-id="200:6295">
+
+      <!-- NODE 200:6287  –  left text -->
+      <div class="info-left" data-node-id="200:6287">
+        <!-- NODE 200:6288 -->
+        <p class="service-label" data-node-id="200:6288">Photographer</p>
+        <!-- NODE 200:6290 -->
+        <p class="service-price" data-node-id="200:6290">₹499 / hour</p>
+      </div>
+
+      <!-- NODE 200:6292  –  Book button -->
+      <button class="book-btn" data-node-id="200:6292">
+        <!-- NODE 200:6293 -->
+        Book
+      </button>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════
+       NODE 200:6296  –  Body (how it's done)
+  ════════════════════════════════ -->
+  <div class="how-section" data-node-id="200:6296">
+
+    <!-- NODE 200:6299 -->
+    <p class="how-heading" data-node-id="200:6299">How it's done?</p>
+
+    <!-- NODE 202:6367  –  steps list -->
+    <div class="steps" data-node-id="202:6367">
+
+      <!-- ── Step 1: Booking & Confirmation (NODE 202:6360) ── -->
+      <div class="step" data-node-id="202:6360">
+        <!-- NODE 204:6426  –  icon -->
+        <div class="step-icon" data-node-id="204:6426">
+          <div class="step-icon__bg" aria-hidden="true"></div>
+          <div class="step-icon__clip">
+            <!-- img: h 144%, left -0.58%, top -15.56%, w 100% -->
+            <img
+              class="step-icon__img"
+              src="https://www.figma.com/api/mcp/asset/545a66d3-f38c-4641-84d3-3e42aa0814bc"
+              alt=""
+            />
+          </div>
+        </div>
+        <!-- NODE 202:6359  –  text -->
+        <div class="step-text" data-node-id="202:6359">
+          <!-- NODE 202:6356 -->
+          <p class="step-title" data-node-id="202:6356">Booking &amp; Confirmation</p>
+          <!-- NODE 202:6358 -->
+          <p class="step-desc"  data-node-id="202:6358">Choose your slot. We confirm everything on WhatsApp.</p>
+        </div>
+      </div>
+
+      <!-- ── Step 2: Photographer Arrives (NODE 202:6368) ── -->
+      <div class="step" data-node-id="202:6368">
+        <!-- NODE 202:6370  –  icon -->
+        <div class="step-icon" data-node-id="202:6370">
+          <div class="step-icon__bg" aria-hidden="true"></div>
+          <div class="step-icon__clip">
+            <!-- img: h 144%, left -0.58%, top -15.56%, w 100% -->
+            <img
+              class="step-icon__img"
+              src="https://www.figma.com/api/mcp/asset/e1856942-10ed-47ee-bc60-aef1de0586e5"
+              alt=""
+            />
+          </div>
+        </div>
+        <!-- NODE 202:6371  –  text -->
+        <div class="step-text" data-node-id="202:6371">
+          <!-- NODE 202:6372 -->
+          <p class="step-title" data-node-id="202:6372">Photographer Arrives</p>
+          <!-- NODE 202:6373 -->
+          <p class="step-desc"  data-node-id="202:6373">Your photographer shows up on time, fully equipped.</p>
+        </div>
+      </div>
+
+      <!-- ── Step 3: Shoot with Guidance (NODE 202:6381) ── -->
+      <div class="step" data-node-id="202:6381">
+        <!-- NODE 204:6428  –  icon (different crop) -->
+        <div class="step-icon" data-node-id="204:6428">
+          <div class="step-icon__bg" aria-hidden="true"></div>
+          <div class="step-icon__clip">
+            <!-- img: h 151.27%, left -4.53%, top -25.58%, w 105.05% -->
+            <img
+              class="step-icon__img step-icon__img--s3"
+              src="https://www.figma.com/api/mcp/asset/45d582c8-34b0-48ea-a0a0-b931ad031544"
+              alt=""
+            />
+          </div>
+        </div>
+        <!-- NODE 202:6384  –  text -->
+        <div class="step-text" data-node-id="202:6384">
+          <!-- NODE 202:6385 -->
+          <p class="step-title" data-node-id="202:6385">Shoot with Guidance</p>
+          <!-- NODE 202:6386 -->
+          <p class="step-desc"  data-node-id="202:6386">Relax – we guide you through poses, angles, and moments.</p>
+        </div>
+      </div>
+
+      <!-- ── Step 4: Edit & Deliver (NODE 202:6387) ── -->
+      <div class="step" data-node-id="202:6387">
+        <!-- NODE 202:6388  –  icon (bordered, no bg) -->
+        <div class="step-icon step-icon--bordered" data-node-id="202:6388">
+          <!-- NODE 202:6389 -->
+          <div class="step-icon__clip">
+            <!-- img: h 144%, left -0.58%, top -15.56%, w 100% -->
+            <img
+              class="step-icon__img"
+              src="https://www.figma.com/api/mcp/asset/359cd93a-605f-414e-adba-7dd3547b0929"
+              alt=""
+            />
+          </div>
+        </div>
+        <!-- NODE 202:6390  –  text -->
+        <div class="step-text" data-node-id="202:6390">
+          <!-- NODE 202:6391 -->
+          <p class="step-title" data-node-id="202:6391">Edit &amp; Deliver</p>
+          <!-- NODE 202:6392 -->
+          <p class="step-desc"  data-node-id="202:6392">RAW photos in 30 mins, Edited photos will be shared within 24–48 hrs</p>
+        </div>
+      </div>
+
+    </div><!-- /steps  202:6367 -->
+  </div><!-- /how-section  200:6296 -->
+
+</div><!-- /sku-block  200:6253 -->
+
+</body>
+</html>
