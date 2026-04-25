@@ -1,0 +1,36 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <circle cx="944" cy="126" r="78" fill="#FFE8A3"/>
+  <path d="M0 525C134 453 255 438 363 470C462 500 563 558 685 550C815 540 882 467 1017 459C1098 454 1158 474 1200 500V700H0V525Z" fill="#8DB7B0"/>
+  <path d="M0 575C105 534 216 523 331 550C437 576 513 638 642 644C768 651 867 595 975 572C1066 553 1145 560 1200 585V700H0V575Z" fill="#5F8F8A"/>
+  <rect x="746" y="210" width="186" height="186" rx="26" fill="#FFFFFF" fill-opacity="0.26" stroke="#FFFFFF" stroke-opacity="0.45" stroke-width="4"/>
+  <text x="792" y="272" fill="#1F2B2A" font-family="Arial, sans-serif" font-size="38" font-weight="700">4.9</text>
+  <text x="792" y="318" fill="#1F2B2A" font-family="Arial, sans-serif" font-size="24">Top Rated</text>
+  <rect x="114" y="102" width="236" height="84" rx="42" fill="#FFFFFF" fill-opacity="0.7"/>
+  <text x="154" y="155" fill="#2F241D" font-family="Arial, sans-serif" font-size="34" font-weight="700">Portrait Shoot</text>
+  <g transform="translate(366 172)">
+    <ellipse cx="190" cy="350" rx="174" ry="34" fill="#2F241D" fill-opacity="0.12"/>
+    <path d="M238 79C238 110.48 212.48 136 181 136C149.52 136 124 110.48 124 79C124 47.52 149.52 22 181 22C212.48 22 238 47.52 238 79Z" fill="#F3C4B0"/>
+    <path d="M133 91C144 119 170 132 202 128L214 188H119L133 91Z" fill="#2A2F45"/>
+    <path d="M99 189H286L317 410H68L99 189Z" fill="#FFFFFF"/>
+    <path d="M126 211C149 191 179 180 211 180C242 180 271 191 294 211L314 345C278 369 239 381 200 381C162 381 124 369 89 345L126 211Z" fill="#D76F53"/>
+    <path d="M223 187L240 271L198 299L162 271L180 187H223Z" fill="#F2AD96"/>
+    <path d="M207 261C228 251 246 234 257 213L349 255L320 303L225 274L207 261Z" fill="#1D2336"/>
+    <rect x="316" y="245" width="118" height="74" rx="18" transform="rotate(-14 316 245)" fill="#222222"/>
+    <circle cx="368" cy="286" r="24" transform="rotate(-14 368 286)" fill="#6E9F98"/>
+    <circle cx="368" cy="286" r="12" transform="rotate(-14 368 286)" fill="#DAF0EA"/>
+    <rect x="418" y="240" width="28" height="21" rx="7" transform="rotate(-14 418 240)" fill="#222222"/>
+    <path d="M167 188L143 266L98 392H152L192 303L213 392H265L238 263L230 188H167Z" fill="#445B76"/>
+    <path d="M102 392H161V498H110C90.1178 498 74 481.882 74 462V420C74 404.536 86.536 392 102 392Z" fill="#F6F0E3"/>
+    <path d="M202 392H267V498H228C206.461 498 189 480.539 189 459V405C189 397.82 194.82 392 202 392Z" fill="#F6F0E3"/>
+    <path d="M85 498H174V526C174 545.882 157.882 562 138 562H121C101.118 562 85 545.882 85 526V498Z" fill="#2F241D"/>
+    <path d="M196 498H289V526C289 545.882 272.882 562 253 562H232C212.118 562 196 545.882 196 526V498Z" fill="#2F241D"/>
+  </g>
+  <defs>
+    <linearGradient id="bg" x1="600" y1="0" x2="600" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DDF0EA"/>
+      <stop offset="0.53" stop-color="#B5D7CF"/>
+      <stop offset="1" stop-color="#F2B7A2"/>
+    </linearGradient>
+  </defs>
+</svg>
