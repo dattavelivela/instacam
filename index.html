@@ -51,9 +51,9 @@
       position: relative;
       flex-shrink: 0;
       overflow: hidden;
+      background: #17754b;
     }
     .hero__img {
-      /* Figma absolute positioning inside overflow:hidden wrapper */
       position: absolute;
       width: 100.09%;
       height: 304.26%;
@@ -270,11 +270,11 @@
       height: 144%;
       left: -0.58%;
       top: -15.56%;
+      object-fit: cover;
       max-width: none;
       pointer-events: none;
     }
 
-    /* NODE 204:6428 (step 3)  –  h 151.27%, left -4.53%, top -25.58%, w 105.05% */
     .step-icon__img--s3 {
       width: 105.05%;
       height: 151.27%;
@@ -356,8 +356,8 @@
     <!-- exact Figma image from node-level fetch -->
     <img
       class="hero__img"
-      src="https://www.figma.com/api/mcp/asset/56f731f6-8139-4b24-8008-79384b716e54"
-      alt=""
+      src="./assets/hero-photographer.png"
+      alt="Photographer capturing portraits outdoors"
     />
 
     <!-- nav buttons -->
@@ -367,13 +367,9 @@
           <polyline points="15 18 9 12 15 6"/>
         </svg>
       </button>
-      <button class="nav-btn" aria-label="Share">
+      <button class="nav-btn" aria-label="Favorite">
         <svg viewBox="0 0 24 24">
-          <circle cx="18" cy="5"  r="3"/>
-          <circle cx="6"  cy="12" r="3"/>
-          <circle cx="18" cy="19" r="3"/>
-          <line x1="8.59"  y1="13.51" x2="15.42" y2="17.49"/>
-          <line x1="15.41" y1="6.51"  x2="8.59"  y2="10.49"/>
+          <path d="M12 20.5L5.65 14.71C3.34 12.61 3 9.05 5.02 6.88C6.77 5 9.71 4.84 11.64 6.53L12 6.84L12.36 6.53C14.29 4.84 17.23 5 18.98 6.88C21 9.05 20.66 12.61 18.35 14.71L12 20.5Z"/>
         </svg>
       </button>
     </div>
@@ -423,7 +419,7 @@
             <!-- img: h 144%, left -0.58%, top -15.56%, w 100% -->
             <img
               class="step-icon__img"
-              src="https://www.figma.com/api/mcp/asset/545a66d3-f38c-4641-84d3-3e42aa0814bc"
+              src="./assets/step-booking.png"
               alt=""
             />
           </div>
@@ -446,7 +442,7 @@
             <!-- img: h 144%, left -0.58%, top -15.56%, w 100% -->
             <img
               class="step-icon__img"
-              src="https://www.figma.com/api/mcp/asset/e1856942-10ed-47ee-bc60-aef1de0586e5"
+              src="./assets/step-arrival.png"
               alt=""
             />
           </div>
@@ -469,7 +465,7 @@
             <!-- img: h 151.27%, left -4.53%, top -25.58%, w 105.05% -->
             <img
               class="step-icon__img step-icon__img--s3"
-              src="https://www.figma.com/api/mcp/asset/45d582c8-34b0-48ea-a0a0-b931ad031544"
+              src="./assets/step-guidance.png"
               alt=""
             />
           </div>
@@ -479,7 +475,7 @@
           <!-- NODE 202:6385 -->
           <p class="step-title" data-node-id="202:6385">Shoot with Guidance</p>
           <!-- NODE 202:6386 -->
-          <p class="step-desc"  data-node-id="202:6386">Relax – we guide you through poses, angles, and moments.</p>
+          <p class="step-desc"  data-node-id="202:6386">Relax - we guide you through poses, angles, and moments.</p>
         </div>
       </div>
 
@@ -492,7 +488,7 @@
             <!-- img: h 144%, left -0.58%, top -15.56%, w 100% -->
             <img
               class="step-icon__img"
-              src="https://www.figma.com/api/mcp/asset/359cd93a-605f-414e-adba-7dd3547b0929"
+              src="./assets/step-delivery.png"
               alt=""
             />
           </div>
@@ -502,7 +498,7 @@
           <!-- NODE 202:6391 -->
           <p class="step-title" data-node-id="202:6391">Edit &amp; Deliver</p>
           <!-- NODE 202:6392 -->
-          <p class="step-desc"  data-node-id="202:6392">RAW photos in 30 mins, Edited photos will be shared within 24–48 hrs</p>
+          <p class="step-desc"  data-node-id="202:6392">RAW photos in 30 mins, Edited photos will be shared within 24-48 hrs</p>
         </div>
       </div>
 
